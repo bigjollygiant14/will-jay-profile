@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import StyledHamburgerButton from "../ui/StyledHamburgerButton";
+import StyledHamburgerButton from "../ui/Buttons/StyledHamburgerButton";
+import Overlay from "../ui/Overlay/Overlay";
 
 const NavigationMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -12,27 +13,9 @@ const NavigationMenu: React.FC = () => {
 
   return (
     <div>
-      {/* Hamburger Menu Icon */}
+      <Overlay className={`overlay ${isOpen ? 'fixed' : 'hidden'}`} onClick={() => setIsOpen(false)} />
       <StyledHamburgerButton onClick={toggleMenu} aria-label="Toggle Navigation Menu" />
-      {/* <button
-        className="hamburger-menu p-4"
-        onClick={toggleMenu}
-        aria-label="Toggle Navigation Menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      </button> */}
 
-      {/* Sidebar Menu */}
       <div
         className={`fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform duration-300 ${
           isOpen ? "transform translate-x-0" : "transform translate-x-full"

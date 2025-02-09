@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import StyledNavigationMenu from "./components/organisms/StyledNavigationMenu";
+import StyledNavigationMenu from "../components/organisms/StyledNavigationMenu";
 
 const HomePage: React.FC = () => {
   return (
