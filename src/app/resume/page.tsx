@@ -17,10 +17,11 @@ const Resume: React.FC = () => {
             <li>Claude, OpenAI</li>
             <li>SASS, Tailwind, Bootstrap</li>
             <li>Jenkins, Docker, Github Actions, Cloudflare</li>
-            <li>TDD & E2E, Jest, Playwright, Pytest, Eslist, Stylelint</li>
+            <li>TDD & E2E, Jest, Playwright, Lighthouse, Pytest, Eslist, Stylelint</li>
             <li>Django ORM, REST</li>
             <li>AWS, Webpack, Docker, Redis, SQL, Git</li>
             <li>Hubspot, Airtable, Wagtail</li>
+            <li>Sentry, Datadog</li>
           </ul>
 
           <h2 className="text-xl font-bold">Experience as a Senior Front End</h2>
@@ -28,7 +29,7 @@ const Resume: React.FC = () => {
             <li>Node, Next.js, Nuxt.js, Nest</li>
             <li>TS, JS, Vue/React & Redux/Angular, D3.js</li>
             <li>Claude, OpenAI</li>
-            <li>SASS, Stylus, LESS, Tailwind</li>
+            <li>SASS, Styled Components, Stylus, LESS, Tailwind</li>
             <li>Vercel, Amplify, Cloudflare Pages, Github Pages, Netlify, Docker, Github Actions</li>
             <li>TDD & E2E, Jest, Playwright, Eslist, Stylelint</li>
             <li>GraphQL, REST, SOAP</li>
