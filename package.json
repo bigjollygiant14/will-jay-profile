@@ -1,6 +1,9 @@
 {
   "name": "will-jay-profile",
   "version": "0.1.0",
+  "engines": {
+    "node": "^22.13.1"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,6 +12,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/code-highlight": "^7.16.3",
+    "@mantine/core": "^7.16.3",
+    "@mantine/hooks": "^7.16.3",
     "motion": "^12.4.1",
     "next": "15.1.6",
     "react": "^19.0.0",

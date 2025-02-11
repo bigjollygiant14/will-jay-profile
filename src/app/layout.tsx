@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MantineProvider } from "@mantine/core";
 import { Geist, Geist_Mono } from "next/font/google";
 // Components
 import StyledNavigationMenu from "@/components/organisms/StyledNavigationMenu";
 import RotatingBenzene from "@/components/RotatingBenzene";
 // Stylesheets
 import "./globals.css";
+import '@mantine/core/styles.css';
+import '@mantine/code-highlight/styles.css';
 
 
 const geistSans = Geist({
@@ -35,11 +38,13 @@ export default function RootLayout({
       >
         {/* Header Section */}
         <header className="p-6 text-3xl flex justify-between w-full font-bold text-center bg-gray-800">
-          <Link href="/" className="flex items-center"><RotatingBenzene />Will Jay</Link>
+          <Link href="/" className="flex items-center text-white"><RotatingBenzene />Will Jay</Link>
           <StyledNavigationMenu />
         </header>
 
-        {children}
+        <MantineProvider>
+          {children}
+        </MantineProvider>
 
         {/* Footer Section */}
         <footer className="p-6 text-center bg-gray-800">

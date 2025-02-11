@@ -14,14 +14,14 @@ const NavigationMenu: React.FC = () => {
 
   return (
     <div>
-      <Overlay className={`overlay ${isOpen ? 'fixed' : 'hidden'}`} onClick={() => setIsOpen(false)} />
+      <Overlay className={`overlay z-[110] ${isOpen ? 'fixed' : 'hidden'}`} onClick={() => setIsOpen(false)} />
       <StyledHamburgerButton onClick={toggleMenu} aria-label="Toggle Navigation Menu" className="h-full d-flex items-center" />
 
       <div
         className={`fixed top-0 right-0 w-128 h-full bg-gray-800 text-white transition-transform duration-300 ${
           isOpen ? "transform translate-x-0" : "transform translate-x-full"
         }`}
-        style={{ zIndex: 100 }}
+        style={{ zIndex: 110 }}
       >
         <ul className="space-y-4 p-6 text-base">
           <li>
@@ -34,7 +34,7 @@ const NavigationMenu: React.FC = () => {
             <Link href="/projects/demo" onClick={() => setIsOpen(false)}>Demo Pages</Link>
           </li>
           <li>
-            <Link href="/projects/code-challenge" onClick={() => setIsOpen(false)}>Code Challenges</Link>
+            <Link href="/projects/skill-builders" onClick={() => setIsOpen(false)}>Skill Builders</Link>
           </li>
           <li>
             <Link href="/projects/snippets" onClick={() => setIsOpen(false)}>Snippets</Link>
