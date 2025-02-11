@@ -7,7 +7,7 @@ const Resume: React.FC = () => {
         <h1 className="text-3xl font-bold">Resume</h1>
         <p>Download Link</p>
 
-        <p>Below is a list of some of the tech I've worked with in the last year thanks to being curious and loving to learn. There are some duplicates, but usually all of the tech works together. Hoping to add more to this list soon!</p>
+        <p>Below is a list of some of the tech I&apos;ve worked with in the last year thanks to being curious and loving to learn. There are some duplicates, but usually all of the tech works together. Hoping to add more to this list soon!</p>
 
         <div>
           <h2 className="text-xl font-bold">Experience as a Senior Full Stack</h2>
@@ -37,7 +37,7 @@ const Resume: React.FC = () => {
             <li>Hubspot, Contentful, Headless WordPress, Shopify API</li>
           </ul>
 
-          <p>To be honest, I love to learn! I'm currently pursuing AWS Developer and AWS ML certifications.</p>
+          <p>To be honest, I love to learn! I&apos;m currently pursuing AWS Developer and AWS ML certifications.</p>
         </div>
       </section>
     </div>

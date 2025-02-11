@@ -23,6 +23,7 @@ const HamburgerButton: React.FC<HamburgerButtonProps> = ({ children, ...rest }) 
           fill="none"
         />
       </svg>
+      { children }
     </Button>
   );
 };
