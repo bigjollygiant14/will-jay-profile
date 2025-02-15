@@ -1,15 +1,16 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import Button from "./Button";
 
 interface HamburgerButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode;
+  children?: ReactNode;
+  onClick?: () => void;
 }
 
-const HamburgerButton: React.FC<HamburgerButtonProps> = ({ children, ...rest }) => {
+const HamburgerButton: React.FC<HamburgerButtonProps> = ({ children, onClick, ...rest }) => {
   const buttonClasses = `text-white p-4`;
 
   return (
-    <Button className={buttonClasses} {...rest}>
+    <Button className={buttonClasses} {...rest} onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"

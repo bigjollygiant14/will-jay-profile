@@ -52,7 +52,7 @@ const PillSelector: React.FC = () => {
     : items;
 
   return (
-    <div className="p-4">
+    <div className="my-4">
       <div className="mb-4 flex gap-2">
         {categories.map((category) => (
           <button
@@ -70,7 +70,7 @@ const PillSelector: React.FC = () => {
       </div>
       <ul>
         {filteredItems.map((item) => (
-          <li key={item.id} className="p-2 border-b">
+          <li key={item.id} className="py-2 border-b">
             <b>{ item.name }</b><br />
             { item.description }<br />
             { item.descriptionExtended }

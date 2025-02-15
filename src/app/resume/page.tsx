@@ -1,12 +1,18 @@
 import React from "react";
 import PillSelector from "@/components/organisms/PillSelector";
+import Link from "next/link";
+import Button from "@/components/ui/Buttons/Button";
 
 const Resume: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen text-white bg-gray-800">
       <section className="p-10 bg-white text-black">
         <h1 className="text-3xl font-bold">Resume</h1>
-        <p>Download Link</p>
+        <div className="flex justify-end pb-4">
+          <Link href="/William A Jay - Resume.pdf" download>
+            <Button>Download Resume</Button>
+          </Link>
+        </div>
 
         <p>Below is a list of some of the tech I&apos;ve worked with in the last year thanks to being curious and loving to learn. There are some duplicates, but usually all of the tech works together. Hoping to add more to this list soon!</p>
         
