@@ -30,9 +30,9 @@ const NavigationMenu: React.FC = () => {
           <li>
             <Link href="/resume" onClick={() => setIsOpen(false)}>Resume</Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/projects/demo" onClick={() => setIsOpen(false)}>Demo Pages</Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/projects/skill-builders" onClick={() => setIsOpen(false)}>Skill Builders</Link>
           </li>

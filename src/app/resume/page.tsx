@@ -1,4 +1,5 @@
 import React from "react";
+import PillSelector from "@/components/organisms/PillSelector";
 
 const Resume: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ const Resume: React.FC = () => {
         <p>Download Link</p>
 
         <p>Below is a list of some of the tech I&apos;ve worked with in the last year thanks to being curious and loving to learn. There are some duplicates, but usually all of the tech works together. Hoping to add more to this list soon!</p>
+        
+        <PillSelector />
 
         <div>
           <h2 className="text-xl font-bold">Experience as a Senior Full Stack</h2>

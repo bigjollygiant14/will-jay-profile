@@ -47,9 +47,9 @@ export default function RootLayout({
         </MantineProvider>
 
         {/* Footer Section */}
-        <footer className="p-6 text-center bg-gray-800">
-          <Link href="/about" className="mx-4 hover:underline">
-            Portfolio
+        <footer className="p-6 text-center text-white bg-gray-800">
+          <Link href="/resume" className="mx-4 hover:underline">
+            Resume
           </Link>
           <Link href="/contact" className="mx-4 hover:underline">
             Contact
