@@ -2,8 +2,13 @@ import React from "react";
 import PillSelector from "@/components/organisms/PillSelector";
 import Link from "next/link";
 import Button from "@/components/ui/Buttons/Button";
+import { ResumeItemType } from "@/lib/types/contentfulTypes";
 
-const Resume: React.FC = () => {
+import { getAllResumeItems } from "@/lib/api";
+;
+async function Resume() {
+  const resumeItems = await getAllResumeItems();
+
   return (
     <div className="flex flex-col min-h-screen text-white bg-gray-800">
       <section className="p-10 bg-white text-black">
@@ -16,9 +21,9 @@ const Resume: React.FC = () => {
 
         <p>Below is a list of some of the tech I&apos;ve worked with in the last year thanks to being curious and loving to learn. There are some duplicates, but usually all of the tech works together. Hoping to add more to this list soon!</p>
         
-        <PillSelector />
+        <PillSelector items={ resumeItems }/>
 
-        <div>
+        {/* <div>
           <h2 className="text-xl font-bold">Experience as a Senior Full Stack</h2>
           <ul>
             <li>Django, Django Rest Framework</li>
@@ -47,7 +52,7 @@ const Resume: React.FC = () => {
           </ul>
 
           <p>To be honest, I love to learn! I&apos;m currently pursuing AWS Developer and AWS ML certifications.</p>
-        </div>
+        </div> */}
       </section>
     </div>
   );

@@ -1,42 +1,35 @@
 "use client";
 
 import React, { useState } from "react";
+import { ResumeItemType } from "@/lib/types/contentfulTypes";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-interface Item {
-  id: number;
-  name: string;
-  categories: string[];
-  description: string;
-  descriptionExtended: string;
+import DisplayDate from "../ui/DisplayDate";
+
+// To Do: Make dynamic
+const categories = ["AWS", "Back End", "Front End", "Git", "API", "Database", "Testing"];
+
+interface PillSelectorType {
+  items: ResumeItemType[];
 }
 
-// To Do: Move to contentful and implement React Hook
-const rothbrightContent: string = `Managed offshore and nearshore developers to deliver projects on time and under budget. These projects focused mainly around requirements gathering, architecting custom applications leveraging AWS resources, rapid prototyping, and maintaining existing applications.`;
-const rothbrightContentExtended: string = ``;
+interface DisplayDateItemType {
+  timestamp: string;
+}
 
-const motleyFoolContent: string = `Worked with product owners to design, build, test, deliver, and iterate front-end and back-end components and automations. Responsible for maximizing technical SEO, managing site data, and maintaining uptime allowing the business to grow from $20M to $100M in revenue. Participated in a mentorship program of junior developers.`;
-const motleyFoolContentExtended: string = ``;
+const DisplayDateItem: React.FC<DisplayDateItemType> = ({ timestamp }) => {
+  if (timestamp) {
+    return (
+      <DisplayDate timestamp={ timestamp } />
+    );
+  }
 
-const deloitteDigitalContent: string = `Senior Staff Engineer leading diverse front-end projects across multiple industries, including food and beverage, B2B, B2C, insurance, and transportation. Responsibilities included designing and delivering solutions such as REST API integrations, custom dashboards, portal development, and website design enhancements.`;
-const deloitteDigitalContentExtended: string = ``;
+  return (
+    <span>Current</span>
+  )
+}
 
-const bahContent: string = `Led migrations from SharePoint 2007 to 2010 and developed custom dashboards integrating REST APIs.`;
-const bahContentExtended: string = ``;
-
-const cfContent: string = `Functioned as a help desk resource, developed and implemented training curriculum for senior FAA personnel, making minor updates to UI, and administering the Emergency Operations SharePoint instance.`;
-const cfContentExtended: string = ``;
-
-const items: Item[] = [
-  { id: 1, name: "Rothbright", categories: ["AWS", "Back-End", "Front-End", "Git", "API", "Database", "Testing"], description: rothbrightContent, descriptionExtended: rothbrightContentExtended },
-  { id: 2, name: "The Motley Fool", categories: ["AWS", "Back-End", "Front-End", "Git", "API", "Database", "Testing"], description: motleyFoolContent, descriptionExtended: motleyFoolContentExtended },
-  { id: 3, name: "Deloitte Digital", categories: ["Front-End", "Back-End", "Git", "API", "Testing"], description: deloitteDigitalContent, descriptionExtended: deloitteDigitalContentExtended },
-  { id: 4, name: "Booz Allen Hamilton", categories: ["Front-End", "API"], description: bahContent, descriptionExtended: bahContentExtended },
-  { id: 5, name: "Codefry LLC/LS Technologies", categories: ["Front-End", "API"], description: cfContent, descriptionExtended: cfContentExtended },
-];
-
-const categories = ["AWS", "Back-End", "Front-End", "Git", "API", "Database", "Testing"];
-
-const PillSelector: React.FC = () => {
+const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const toggleFilter = (category: string) => {
@@ -48,11 +41,12 @@ const PillSelector: React.FC = () => {
   };
 
   const filteredItems = selectedFilters.length
-    ? items.filter((item) => item.categories.some((category) => selectedFilters.includes(category)))
+    ? items.filter((item) => item.contentfulMetadata.tags.some((category) => selectedFilters.includes(category.name)))
     : items;
 
   return (
     <div className="my-4">
+      <span className="text-xs">Note: These buttons are greedy meaning it will show all matches with &quot;Tag A&quot; OR &quot;Tag B&quot;</span>
       <div className="mb-4 flex gap-2">
         {categories.map((category) => (
           <button
@@ -69,11 +63,12 @@ const PillSelector: React.FC = () => {
         ))}
       </div>
       <ul>
-        {filteredItems.map((item) => (
-          <li key={item.id} className="py-2 border-b">
-            <b>{ item.name }</b><br />
-            { item.description }<br />
-            { item.descriptionExtended }
+        {filteredItems.map((item, index) => (
+          <li key={index} className="py-2 border-b">
+            <h3 className="text-xl font-bold mt-2 mb-1">{ item.jobTitle } at { item.companyName }</h3>
+            <h4 className="font-semibold text-sm mb-2"><DisplayDateItem timestamp={ item.dateStarted } /> - <DisplayDateItem timestamp={ item.dateEnded } /></h4>
+            <b>Summary:</b>{ documentToReactComponents(item.description.json, { preserveWhitespace: true, }) }<br />
+            <b>Details:</b>{ documentToReactComponents(item.descriptionExtended.json, { preserveWhitespace: true, }) }
           </li>
         ))}
       </ul>
