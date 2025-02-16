@@ -26,21 +26,21 @@ const MyForm: React.FC = () => {
     e.preventDefault();
     // Handle form submission here, e.g., send data to an API
     // console.log('Form Data:', formData);
+    const formData = new FormData(e.target);
 
-    const submissionData = new URLSearchParams();
-    submissionData.append('name', formData.name);
-    submissionData.append('email', formData.email);
-    submissionData.append('message', formData.message);
+    // const submissionData = new URLSearchParams();
+    // submissionData.append('name', formData.name);
+    // submissionData.append('email', formData.email);
+    // submissionData.append('message', formData.message);
     
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/contact-form.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: submissionData.toString(),
+        body: new URLSearchParams(formData).toString(),
       });
 
       if (response.ok) {
-        // setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
       } else {
         console.error('Form submission failed');
