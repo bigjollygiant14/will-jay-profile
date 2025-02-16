@@ -1,7 +1,8 @@
 'use client'
 
 // components/MyForm.tsx
-import React, { useState, FormEvent } from 'react';
+// import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import Button from '../ui/Buttons/Button';
 
 interface FormData {
@@ -23,6 +24,7 @@ const MyForm: React.FC = () => {
   };
 
   // const handleSubmit = async (e: FormEvent) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     // Handle form submission here, e.g., send data to an API
