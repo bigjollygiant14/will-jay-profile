@@ -2,7 +2,6 @@ import React from "react";
 import PillSelector from "@/components/organisms/PillSelector";
 import Link from "next/link";
 import Button from "@/components/ui/Buttons/Button";
-import { ResumeItemType } from "@/lib/types/contentfulTypes";
 
 import { getAllResumeItems } from "@/lib/api";
 ;
