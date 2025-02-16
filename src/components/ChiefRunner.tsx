@@ -76,7 +76,7 @@ const ChiefRunner: React.FC<ChiefRunnerProps> = ({ children }) => {
       </motion.div>
 
       {/* Rock */}
-      <div className="absolute bottom-4 left-[50%] w-14 h-10 bg-gray-400 rounded-full"></div>
+      <div className="absolute bottom-4 left-[50%] w-14 h-10 bg-gray-400 border border-2 border-gray-500 rounded-full"></div>
       
       {/* Running Master Chief */}
       <motion.div
