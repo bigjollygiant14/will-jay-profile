@@ -1,5 +1,4 @@
 import React from "react";
-import ContactForm from "@/components/organisms/ContactForm";
 
 const About: React.FC = () => {
   return (
