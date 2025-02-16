@@ -53,12 +53,36 @@ const ChiefRunner: React.FC<ChiefRunnerProps> = ({ children }) => {
         <polygon points="60,10 70,3 75,10" fill="#6e4722" stroke="" />
         <polygon points="70,10 75,2 80,10" fill="#8B5A2B" stroke="" />
       </svg>
+
+      {/* Goomba Animation */}
+      <motion.div
+        initial={{ x: "-3000%" }}
+        animate={{ x: ["-3000%", "35%", "35%", "-3000%"] }}
+        transition={{ duration: 5, times: [0, 0.3, 0.8, 1], ease: "linear", repeat: Infinity }}
+        className="absolute bottom-4"
+      >
+        <motion.div
+          animate={{ y: [1, 0, 1] }}
+          transition={{ times: [0, 0.5, 1], duration: 5, repeat: Infinity }}
+        >
+          <Image
+            src="/goomba.png"
+            alt="Running 8-bit Goomba"
+            width={30}
+            height={30}
+            className="pixelated"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Rock */}
+      <div className="absolute bottom-4 left-[50%] w-14 h-10 bg-gray-400 rounded-full"></div>
       
       {/* Running Master Chief */}
       <motion.div
         initial={{ x: "-2000%" }}
         animate={{ x: ["-2000%", "50%", "50%", "2000%"] }}
-        transition={{ duration: 3.5, times: [0, 0.4, 0.6, 1], ease: "linear", repeat: Infinity }}
+        transition={{ duration: 5, times: [0.1, 0.45, 0.6, 1], ease: "linear", repeat: Infinity }}
         className="absolute bottom-4"
       >
         <motion.div
