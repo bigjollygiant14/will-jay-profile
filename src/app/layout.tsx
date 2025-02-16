@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MantineProvider } from "@mantine/core";
 import { Geist, Geist_Mono } from "next/font/google";
 // Components
+import Footer from "@/components/organisms/Footer";
 import StyledNavigationMenu from "@/components/organisms/StyledNavigationMenu";
 import RotatingBenzene from "@/components/RotatingBenzene";
 // Stylesheets
@@ -47,17 +48,7 @@ export default function RootLayout({
         </MantineProvider>
 
         {/* Footer Section */}
-        <footer className="p-6 text-center text-white bg-gray-800">
-          <Link href="/resume" className="mx-4 hover:underline">
-            Resume
-          </Link>
-          <Link href="/contact" className="mx-4 hover:underline">
-            Contact
-          </Link>
-          <Link href="https://github.com/bigjollygiant14" className="mx-4 hover:underline" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </Link>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

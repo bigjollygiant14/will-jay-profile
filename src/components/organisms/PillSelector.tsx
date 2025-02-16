@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { ResumeItemType } from "@/lib/types/contentfulTypes";
+import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
+import { ResumeItemType } from "@/lib/types/contentfulTypes";
 import DisplayDate from "../ui/DisplayDate";
 
 // To Do: Make dynamic
-const categories = ["AWS", "Back End", "Front End", "Git", "API", "Database", "Testing"];
+const categories = ["AI", "AWS", "Back End", "Front End", "API", "Database", "Testing"];
 
 interface PillSelectorType {
   items: ResumeItemType[];
@@ -29,6 +29,12 @@ const DisplayDateItem: React.FC<DisplayDateItemType> = ({ timestamp }) => {
   )
 }
 
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node:any, children:any) => <b key={`${ children }-key`}>{ children }</b>,
+  },
+};
+
 const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -47,13 +53,13 @@ const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
   return (
     <div className="my-4">
       <span className="text-xs">Note: These buttons are greedy meaning it will show all matches with &quot;Tag A&quot; OR &quot;Tag B&quot;</span>
-      <div className="mb-4 flex gap-2">
+      <div className="mb-4 py-2 flex gap-2 overflow-x-scroll">
         {categories.map((category) => (
           <button
             key={category}
             className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
               selectedFilters.includes(category)
-                ? "bg-blue-500 text-white"
+                ? "bg-gray-800 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
             onClick={() => toggleFilter(category)}
@@ -64,11 +70,18 @@ const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
       </div>
       <ul>
         {filteredItems.map((item, index) => (
-          <li key={index} className="py-2 border-b">
+          <li key={`${ index }-filtered-items`} className="py-2 border-b">
             <h3 className="text-xl font-bold mt-2 mb-1">{ item.jobTitle } at { item.companyName }</h3>
             <h4 className="font-semibold text-sm mb-2"><DisplayDateItem timestamp={ item.dateStarted } /> - <DisplayDateItem timestamp={ item.dateEnded } /></h4>
             <b>Summary:</b>{ documentToReactComponents(item.description.json, { preserveWhitespace: true, }) }<br />
-            <b>Details:</b>{ documentToReactComponents(item.descriptionExtended.json, { preserveWhitespace: true, }) }
+            <b>Details:</b>{ documentToReactComponents(item.descriptionExtended.json, { 
+              preserveWhitespace: true,
+              renderText: text => {
+                return text.split('\n').reduce((children:any, textSegment:string, index:number) => {
+                  return [...children, index > 0 && <br key={index} />, textSegment];
+                }, []);
+              },
+            }) }
           </li>
         ))}
       </ul>

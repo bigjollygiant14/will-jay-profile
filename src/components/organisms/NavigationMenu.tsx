@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import StyledHamburgerButton from "../ui/Buttons/StyledHamburgerButton";
 import Overlay from "../ui/Overlay/Overlay";
+import GoombaBounce from "../GoombaDancing";
 
 const NavigationMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -43,6 +44,8 @@ const NavigationMenu: React.FC = () => {
             <Link className="w-full block" href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
           </li>
         </ul>
+
+        <GoombaBounce />
       </div>
     </div>
   );

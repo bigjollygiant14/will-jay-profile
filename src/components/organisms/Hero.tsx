@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       <ChiefRunner>
         <section className="flex flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-semibold">Web Developer & UX Enthusiast</h1>
-          <p className="mt-4 text-lg">Building clean, user-friendly digital experiences.</p>
+          <p className="mt-4 text-lg">Building clean and effective digital experiences</p>
         </section>
       </ChiefRunner>
     </div>

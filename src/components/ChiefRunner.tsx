@@ -58,7 +58,7 @@ const ChiefRunner: React.FC<ChiefRunnerProps> = ({ children }) => {
       <motion.div
         initial={{ x: "-3000%" }}
         animate={{ x: ["-3000%", "35%", "35%", "-3000%"] }}
-        transition={{ duration: 5, times: [0, 0.3, 0.8, 1], ease: "linear", repeat: Infinity }}
+        transition={{ duration: 8, times: [0, 0.3, 0.8, 1], ease: "linear", repeat: Infinity }}
         className="absolute bottom-4"
       >
         <motion.div
@@ -82,7 +82,7 @@ const ChiefRunner: React.FC<ChiefRunnerProps> = ({ children }) => {
       <motion.div
         initial={{ x: "-2000%" }}
         animate={{ x: ["-2000%", "50%", "50%", "2000%"] }}
-        transition={{ duration: 5, times: [0.1, 0.45, 0.6, 1], ease: "linear", repeat: Infinity }}
+        transition={{ duration: 8, times: [0.1, 0.45, 0.6, 1], ease: "linear", repeat: Infinity }}
         className="absolute bottom-4"
       >
         <motion.div
