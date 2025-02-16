@@ -22,22 +22,23 @@ const MyForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
     // Handle form submission here, e.g., send data to an API
     // console.log('Form Data:', formData);
-    const formData = new FormData(e.target);
+    // const formData = new FormData(event.target);
 
-    // const submissionData = new URLSearchParams();
-    // submissionData.append('name', formData.name);
-    // submissionData.append('email', formData.email);
-    // submissionData.append('message', formData.message);
+    const submissionData = new URLSearchParams();
+    submissionData.append('name', formData.name);
+    submissionData.append('email', formData.email);
+    submissionData.append('message', formData.message);
     
     try {
       const response = await fetch('/contact-form.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        body: submissionData.toString(),
       });
 
       if (response.ok) {
