@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from "@/components/organisms/ContactForm";
+// import ContactForm from "@/components/organisms/ContactForm";
 
 const Contact: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
             <h2 className="text-xl font-bold">Looking forward to hearing from you!</h2>
             <div className="text-[6px]">Unless you&apos;re mean, then I hope you step in water with socks on.</div>
           </div>
-          <ContactForm />
+          {/* <ContactForm /> */}
         </div>
       </section>
     </div>
