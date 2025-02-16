@@ -12,7 +12,7 @@ const About: React.FC = () => {
           <div className="shadow-lg my-2">
             <Image className="bg-gray-200 w-full sm:w-auto sm:max-w-lg mx-auto" quality={80} src="/family.png" alt="will image" width="400" height="300" />
           </div>
-          <p className="mb-2">Here's a list of all the random tech stuff I have experience with in no particular order:</p>
+          <p className="mb-2">Here&apos;s a list of all the random tech stuff I have experience with in no particular order:</p>
           <ul>
             <li><span className="font-bold">Python:</span> Django, Django Rest Framework, Custom Apps</li>
             <li><span className="font-bold">Local Development:</span> Node, Next.js, Nuxt.js, Nest</li>

@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="flex h-full items-center">
             <p className="px-4 py-2">
-              "Do or do not. There is no try."<br />
+              &quot;Do or do not. There is no try.&quot;<br />
               - Yoda
             </p>
           </div>

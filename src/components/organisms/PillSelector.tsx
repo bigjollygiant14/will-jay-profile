@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BLOCKS } from '@contentful/rich-text-types';
+// import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ResumeItemType } from "@/lib/types/contentfulTypes";
 import DisplayDate from "../ui/DisplayDate";
@@ -28,12 +28,6 @@ const DisplayDateItem: React.FC<DisplayDateItemType> = ({ timestamp }) => {
     <span>Current</span>
   )
 }
-
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node:any, children:any) => <b key={`${ children }-key`}>{ children }</b>,
-  },
-};
 
 const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -77,6 +71,7 @@ const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
             <b>Details:</b>{ documentToReactComponents(item.descriptionExtended.json, { 
               preserveWhitespace: true,
               renderText: text => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 return text.split('\n').reduce((children:any, textSegment:string, index:number) => {
                   return [...children, index > 0 && <br key={index} />, textSegment];
                 }, []);
