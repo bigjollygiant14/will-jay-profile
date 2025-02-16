@@ -25,16 +25,44 @@ const MyForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     // Handle form submission here, e.g., send data to an API
-    console.log('Form Data:', formData);
+    // console.log('Form Data:', formData);
+
+    const submissionData = new URLSearchParams();
+    submissionData.append('name', formData.name);
+    submissionData.append('email', formData.email);
+    submissionData.append('message', formData.message);
+    
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: submissionData.toString(),
+      });
+
+      if (response.ok) {
+        // setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
 
     // Reset the form after submission
-    setFormData({ name: '', email: '', message: '' });
+    // setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>
+          Don’t fill this out: <input name="bot-field" />
+        </label>
+      </p>
+
       <div className="mb-4">
-        <input type="hidden" name="contact-form" value="contact_form" />
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name:</label>
         <input
           type="text"
