@@ -32,8 +32,9 @@ const MyForm: React.FC = () => {
   };
 
   return (
-    <form name="contact" method="POST" netlify onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div className="mb-4">
+        <input type="hidden" name="contact-form" value="contact_form" />
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name:</label>
         <input
           type="text"
