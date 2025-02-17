@@ -5,12 +5,12 @@ const About: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen text-white bg-gray-800">
       <section className="p-10 bg-white text-black">
-        <div className="w-full max-w-sm m-auto mb-2">
+        <div className="w-full max-w-md m-auto mb-2">
           <h1 className="text-3xl font-bold mb-2">About</h1>
           <p className="mb-2">I was born and raised in the DC area but moved to Colorado in 2014. I played basketball growing up so working as a team has always been second nature to me. I love learning and solving puzzles so engineering work has always felt right. I love putting my own flare on the things I do.</p>
-          <p className="mb-2">Outside of work, I enjoy cooking, spending time with my family, watching and playing sports, playing PC games (WOW Classic &amp; Escape From Tarkov at the moment).</p>
+          <p className="mb-2">Outside of work, I enjoy cooking, spending time with my family, watching and playing sports, and playing PC games (WOW Classic &amp; Escape From Tarkov at the moment).</p>
           <div className="shadow-lg my-2">
-            <Image className="bg-gray-200 w-full sm:w-auto sm:max-w-lg mx-auto" quality={80} src="/family.png" alt="will image" width="400" height="300" />
+            <Image className="bg-gray-200 w-full sm:w-auto sm:max-w-lg mx-auto p-4" quality={80} src="/family.png" alt="will image" width="400" height="300" />
           </div>
           <p className="mb-2">Here&apos;s a list of all the random tech stuff I have experience with in no particular order:</p>
           <ul>
