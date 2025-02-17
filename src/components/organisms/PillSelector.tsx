@@ -7,7 +7,7 @@ import { ResumeItemType } from "@/lib/types/contentfulTypes";
 import DisplayDate from "../ui/DisplayDate";
 
 // To Do: Make dynamic
-const categories = ["AI", "AWS", "Back End", "Front End", "API", "Database", "Testing"];
+const categories = ["AI", "AWS", "Back End", "Front End", "API", "Database", "SharePoint", "Testing"];
 
 interface PillSelectorType {
   items: ResumeItemType[];

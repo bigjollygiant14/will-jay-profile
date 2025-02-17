@@ -86,8 +86,9 @@ const ChiefRunner: React.FC<ChiefRunnerProps> = ({ children }) => {
         className="absolute bottom-4"
       >
         <motion.div
-          animate={{ y: [0, -2, 0] }}
-          transition={{ repeat: Infinity, duration: 0.45, ease: "linear", repeatDelay: 1.5 }}
+          // animate={{ y: [0, -2, 0] }}
+          animate={{scaleX: [1, -1, -1, 1]}}
+          transition={{ repeat: Infinity, duration: 1.0, times:[0.1, 0.2, 0.8, 1], ease: "linear", repeatDelay: 3 }}
         >
           <Image
             src="/masterchief_8bit.png" 
