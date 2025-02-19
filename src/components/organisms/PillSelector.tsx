@@ -51,7 +51,7 @@ const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
+            className={`px-4 py-2 min-w-[100px] shrink-0 rounded-full text-sm font-medium border transition-colors ${
               selectedFilters.includes(category)
                 ? "bg-gray-800 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
