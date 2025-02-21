@@ -1,7 +1,6 @@
 // Stylesheets
 import "./globals.css";
 import '@mantine/core/styles.css';
-import '@mantine/code-highlight/styles.css';
 // Vendor
 import type { Metadata } from "next";
 import Link from "next/link";

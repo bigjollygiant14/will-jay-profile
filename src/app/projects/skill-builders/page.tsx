@@ -1,3 +1,5 @@
+import '@mantine/code-highlight/styles.css';
+
 import React from "react";
 import { CodeHighlightTabs } from '@mantine/code-highlight';
 
@@ -129,7 +131,7 @@ const SkillBuilders: React.FC = () => {
             collapseCodeLabel="Show less"/>
 
           <h3 className="py-2 font-medium text-lg">Rationale</h3>
-          <p>This problem started as a normal dom traversal, but with a few kinks!. I started by selecting the target element, in this case, <code>&lt;b&gt;</code> since this made sense as the starting point as the final point in the pattern. Then I worked up the ancestors checking for the proper pattern, making sure to examine all ancestors all the way to the root as there <i>could</i> be other elements between the matching pattern. By looking at the data, I noticed all the correct <code>&lt;b&gt;</code> elements had a class <code>ref</code> while many decoy elements had <code>ref-0</code>. This was a small optimization as I could immediately eliminate some preliminary matches.</p>
+          <p>This problem started as a normal dom traversal, but with a few kinks! I started by selecting the target element, in this case, <code>&lt;b&gt;</code> since this made sense as the starting point as the final point in the pattern. Then I worked up the ancestors checking for the proper pattern, making sure to examine all ancestors all the way to the root as there <i>could</i> be other elements between the matching pattern. By looking at the data, I noticed all the correct <code>&lt;b&gt;</code> elements had a class <code>ref</code> while many decoy elements had <code>ref-0</code>. This was a small optimization as I could immediately eliminate some preliminary matches.</p>
         </div>
 
         <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
