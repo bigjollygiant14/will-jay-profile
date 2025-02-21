@@ -116,7 +116,7 @@ function twoSum(nums: number[], target: number): number[] {
 const SkillBuilders: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="p-10 bg-white text-black">
+      <section className="p-6 bg-white text-black">
         <h1 className="text-3xl font-bold">Skill Builders</h1>
         <p>I&apos;ve been working to improve my logic skills. Here are some problems I&apos;ve recently solved while not working on anything else.</p>
 
