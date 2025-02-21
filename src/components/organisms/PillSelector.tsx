@@ -71,9 +71,8 @@ const PillSelector: React.FC<PillSelectorType> = ({ items }) => {
             <b>Details:</b>{ documentToReactComponents(item.descriptionExtended.json, { 
               preserveWhitespace: true,
               renderText: text => {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                return text.split('\n').reduce((children:any, textSegment:string, index:number) => {
-                  return [...children, index > 0 && <br key={index} />, textSegment];
+                return text.split('\n').reduce((children:React.ReactNode, textSegment:string, index:number) => {
+                  return [...(children as []), index > 0 && <br key={index} />, textSegment];
                 }, []);
               },
             }) }

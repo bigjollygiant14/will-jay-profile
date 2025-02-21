@@ -6,11 +6,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/organisms/Footer";
 import StyledNavigationMenu from "@/components/organisms/StyledNavigationMenu";
 import RotatingBenzene from "@/components/RotatingBenzene";
+import ConsoleLogger from "@/components/ConsoleLogger";
 // Stylesheets
 import "./globals.css";
 import '@mantine/core/styles.css';
 import '@mantine/code-highlight/styles.css';
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +49,8 @@ export default function RootLayout({
 
         {/* Footer Section */}
         <Footer />
+
+        <ConsoleLogger />
       </body>
     </html>
   );

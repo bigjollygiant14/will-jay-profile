@@ -18,15 +18,5 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Major To Do:
 - Snippets
   - Add snippets
-- About
-  - Pic & short bio
-- Home
-  - Update Images
-  - Update quote
-- Contact
-  - Contact form submission
 - Resume Page
-  - Hook up to contentful using react hooks
-  - Write expanded content for resume page
   - add a show more/show less feature
-  - clean up styles
