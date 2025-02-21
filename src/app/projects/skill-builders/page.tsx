@@ -113,6 +113,21 @@ function twoSum(nums: number[], target: number): number[] {
   }
 ]
 
+const challenge3Code = [
+  {
+    fileName: 'problem',
+    code: `
+      Implement a feature to allow item selection with the following requirements:
+        1. Clicking an item selects/unselects it.
+        2. Multiple items can be selected at a time.
+        3. Make sure to avoid unnecessary re-renders of each list item in the big list (performance).
+        4. Currently selected items should be visually highlighted.
+        5. Currently selected items' names should be shown at the top of the page.
+      `,
+      language: 'md'
+  }
+]
+
 const SkillBuilders: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -145,6 +160,24 @@ const SkillBuilders: React.FC = () => {
 
           <h3 className="py-2 font-medium text-lg">Rationale</h3>
           <p>This problem is pretty straightforward. You move down the list/array and check to see if the values add up to the given sum. The trick here is in the optimizaiton. One solution would be to nest <code>for</code> loops, but this would be inefficient on large datasets as it has a complexity of O(n^2). By using a map, we can reduce this to O(n) as is shown in the solution since we only need to go through the items in the list once.</p>
+        </div>
+
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+          <h2 className="text-xl font-bold">Challenge 3 - Interview Question</h2>
+          <h3 className="py-2 font-medium text-lg">Setup</h3>
+          <p>
+            One interview question I recently did was as follows:
+          </p>
+
+          <CodeHighlightTabs code={challenge3Code}
+            withExpandButton={true}
+            defaultExpanded={false}
+            expandCodeLabel="Show full code"
+            collapseCodeLabel="Show less"/>
+            
+          <p className="my-3"><a className="text-blue-400 font-bold" href="https://jsfiddle.net/7zonLk06/" target="_blank">JS Fiddle Solution</a></p>
+          <h3 className="py-2 font-medium text-lg">Rationale</h3>
+          <p>This was a fun project where I started with just a huge list and the requirements defined above. The result is in the fiddle. Some interesting points were that: list items were all different colors, performance was key!</p>
         </div>
       </section>
     </div>
