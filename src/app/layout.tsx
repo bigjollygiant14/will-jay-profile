@@ -1,3 +1,8 @@
+// Stylesheets
+import "./globals.css";
+import '@mantine/core/styles.css';
+import '@mantine/code-highlight/styles.css';
+// Vendor
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MantineProvider } from "@mantine/core";
@@ -7,10 +12,6 @@ import Footer from "@/components/organisms/Footer";
 import StyledNavigationMenu from "@/components/organisms/StyledNavigationMenu";
 import RotatingBenzene from "@/components/RotatingBenzene";
 import ConsoleLogger from "@/components/ConsoleLogger";
-// Stylesheets
-import "./globals.css";
-import '@mantine/core/styles.css';
-import '@mantine/code-highlight/styles.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
