@@ -1,8 +1,6 @@
 'use client'
 
-// components/MyForm.tsx
-// import React, { useState, FormEvent } from 'react';
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import Button from '../ui/Buttons/Button';
 
 interface FormData {
@@ -23,14 +21,9 @@ const MyForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // const handleSubmit = async (e: FormEvent) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission here, e.g., send data to an API
-    // console.log('Form Data:', formData);
-    // const formData = new FormData(event.target);
-
+    
     const submissionData = new URLSearchParams();
     submissionData.append('name', formData.name);
     submissionData.append('email', formData.email);
@@ -53,7 +46,7 @@ const MyForm: React.FC = () => {
     }
 
     // Reset the form after submission
-    // setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -61,7 +54,7 @@ const MyForm: React.FC = () => {
       <input type="hidden" name="form-name" value="contact" />
       <p hidden>
         <label>
-          Don’t fill this out: <input name="bot-field" />
+          Don&apos;t fill this out: <input name="bot-field" />
         </label>
       </p>
 
