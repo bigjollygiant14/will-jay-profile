@@ -15,8 +15,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Deploys happen automatically when `main` is built
 - Feature branches are automatically created from `/feature`
 
-## Major To Do:
-- Snippets
-  - Add snippets
-- Resume Page
-  - add a show more/show less feature
+## Major To Dos:
+- Pull out ajax button on homepage
+- Change API route to be an environment variable for easier local development

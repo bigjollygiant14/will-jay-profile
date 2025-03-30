@@ -188,7 +188,7 @@ const SkillBuilders: React.FC = () => {
         <h1 className="text-3xl font-bold">Skill Builders</h1>
         <p>I&apos;ve been working to improve my logic skills. Here are some problems I&apos;ve recently solved while not working on anything else.</p>
 
-        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md" id="skillBuilders1">
           <h2 className="text-xl font-bold">Challenge 1 - Dom Traversal</h2>
           <h3 className="py-2 font-medium text-lg">Setup</h3>
           <p>(For the sake of anonymity, I&apos;ve removed identifying information.)</p>
@@ -202,7 +202,7 @@ const SkillBuilders: React.FC = () => {
           <p>This problem started as a normal dom traversal, but with a few kinks! I started by selecting the target element, in this case, <code>&lt;b&gt;</code> since this made sense as the starting point as the final point in the pattern. Then I worked up the ancestors checking for the proper pattern, making sure to examine all ancestors all the way to the root as there <i>could</i> be other elements between the matching pattern. By looking at the data, I noticed all the correct <code>&lt;b&gt;</code> elements had a class <code>ref</code> while many decoy elements had <code>ref-0</code>. This was a small optimization as I could immediately eliminate some preliminary matches.</p>
         </div>
 
-        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md" id="skillBuilders2">
           <h2 className="text-xl font-bold">Challenge 2 - Two Sum</h2>
           <h3 className="py-2 font-medium text-lg">Setup</h3>
           <CodeHighlightTabs code={challenge2Code}
@@ -215,7 +215,7 @@ const SkillBuilders: React.FC = () => {
           <p>This problem is pretty straightforward. You move down the list/array and check to see if the values add up to the given sum. The trick here is in the optimizaiton. One solution would be to nest <code>for</code> loops, but this would be inefficient on large datasets as it has a complexity of O(n^2). By using a map, we can reduce this to O(n) as is shown in the solution since we only need to go through the items in the list once.</p>
         </div>
 
-        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md" id="skillBuilders3">
           <h2 className="text-xl font-bold">Challenge 3 - Interview Question</h2>
           <h3 className="py-2 font-medium text-lg">Setup</h3>
           <p>
@@ -233,7 +233,7 @@ const SkillBuilders: React.FC = () => {
           <p>This was a fun project where I started with just a huge list and the requirements defined above. The result is in the fiddle. Some interesting points were that: list items were all different colors, performance was key!</p>
         </div>
         
-        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md" id="skillBuilders4">
           <h2 className="text-xl font-bold">Challenge 4 - FastAPI Deployment</h2>
           <h3 className="py-2 font-medium text-lg">Setup</h3>
           <p>
