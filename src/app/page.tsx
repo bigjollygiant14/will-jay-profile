@@ -1,8 +1,23 @@
-import React from "react";
+"use client"
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Hero from "@/components/organisms/Hero";
+import Button from "@/components/ui/Buttons/Button";
 
 const HomePage: React.FC = () => {
+  const [backgroundColor, setBackgroundColor] = useState<string>("#ffffff");
+
+  const fetchRandomColor = async () => {
+    try {
+      const response = await fetch('https://fastapi-random-color-withered-water-2515.fly.dev/random-color-hex');
+      const data = await response.json();
+      setBackgroundColor(data.color);
+    } catch (error) {
+      console.error('Error fetching random color:', error);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen text-white bg-gray-800">
       <Hero />
@@ -22,9 +37,14 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* About Section */}
-      <section className="p-10 bg-white text-black text-center">
+      <section className="p-10 text-center" style={{ backgroundColor }}>
         <h2 className="text-2xl font-bold">Welcome!</h2>
-        <p className="mt-2 text-lg">Feel free to poke around.</p>
+        <p className="mt-2 text-lg">
+          Feel free to poke around.
+          <Button onClick={fetchRandomColor} className="ml-4">
+            Color Me!
+          </Button>
+        </p>
         <p className="mt-2 text-sm">I&apos;m actively updating this site so changes are frequent! This site is built with Next.js, TypeScript, Netlify, Tailwind and Contentful as the CMS.</p>
       </section>
     </div>
