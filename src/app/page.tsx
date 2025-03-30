@@ -37,13 +37,14 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* About Section */}
-      <section className="p-10 text-center" style={{ backgroundColor }}>
+      <section className="p-10 text-center text-black" style={{ backgroundColor }}>
         <h2 className="text-2xl font-bold">Welcome!</h2>
         <p className="mt-2 text-lg">
           Feel free to poke around.
-          <Button onClick={fetchRandomColor} className="ml-4">
+          <br />
+          {/* <Button onClick={fetchRandomColor} className="ml-4">
             Color Me!
-          </Button>
+          </Button> */}
         </p>
         <p className="mt-2 text-sm">I&apos;m actively updating this site so changes are frequent! This site is built with Next.js, TypeScript, Netlify, Tailwind and Contentful as the CMS.</p>
       </section>
