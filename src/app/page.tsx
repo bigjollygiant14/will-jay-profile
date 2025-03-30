@@ -17,6 +17,7 @@ const HomePage: React.FC = () => {
     setError(false);
     try {
       const response = await fetch('https://fastapi-random-color-withered-water-2515.fly.dev/random-color-hex');
+      // const response = await fetch('http://0.0.0.0:8000/random-color-hex');
       const data = await response.json();
       if (response.status === 429) {
         setError(true);
