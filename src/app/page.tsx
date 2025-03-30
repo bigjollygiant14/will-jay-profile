@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
             </>
           )}
           <br />
-          <span className="text-xs text-red-500 mt-2">Read more about this button on the <a href="/projects/skill-builders/#skillBuilders4">Skill Builders page</a></span>
+          <span className="text-xs text-gray-500 mt-2">Read more about this button on the <a href="/projects/skill-builders/#skillBuilders4">Skill Builders page</a></span>
         </p>
         <p className="mt-2 text-sm">I&apos;m actively updating this site so changes are frequent! This site is built with Next.js, TypeScript, Netlify, Tailwind and Contentful as the CMS. I also have a small FastAPI that handles fun little features around the site hosted on fly.io.</p>
       </section>

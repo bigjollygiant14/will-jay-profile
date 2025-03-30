@@ -145,9 +145,7 @@ app = FastAPI()
 app.state.limiter = limiter
 
 origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "https://willjayprofile.netlify.app/",
+    "https://willjayprofile.netlify.app",
 ]
 
 app.add_middleware(
