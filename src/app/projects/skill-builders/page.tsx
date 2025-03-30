@@ -117,14 +117,67 @@ const challenge3Code = [
   {
     fileName: 'problem',
     code: `
-      Implement a feature to allow item selection with the following requirements:
-        1. Clicking an item selects/unselects it.
-        2. Multiple items can be selected at a time.
-        3. Make sure to avoid unnecessary re-renders of each list item in the big list (performance).
-        4. Currently selected items should be visually highlighted.
-        5. Currently selected items' names should be shown at the top of the page.
+Implement a feature to allow item selection with the following requirements:
+1. Clicking an item selects/unselects it.
+2. Multiple items can be selected at a time.
+3. Make sure to avoid unnecessary re-renders of each list item in the big list (performance).
+4. Currently selected items should be visually highlighted.
+5. Currently selected items' names should be shown at the top of the page.
       `,
       language: 'md'
+  }
+]
+
+const challenge4Code = [
+  {
+    fileName: 'FastAPI.py',
+    code: `
+import random
+import os
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+from starlette.responses import JSONResponse
+
+limiter = Limiter(key_func=get_remote_address)
+app = FastAPI()
+app.state.limiter = limiter
+
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    "https://willjayprofile.netlify.app/",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+"""
+This endpoint returns a random color in hex format.
+
+Rate limit: 5 requests per minute per IP
+
+Run Locally: uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+"""
+
+@app.get("/random-color-hex")
+@limiter.limit("5/minute", error_message="Too many requests")
+async def get_random_color(request: Request):
+    color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+    return JSONResponse(content={"color": color})
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("PORT", 8080))  # Match Fly.io PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
+    `,
+    language: 'py'
   }
 ]
 
@@ -178,6 +231,23 @@ const SkillBuilders: React.FC = () => {
           <p className="my-3"><a className="text-blue-400 font-bold" href="https://jsfiddle.net/7zonLk06/" target="_blank">JS Fiddle Solution</a></p>
           <h3 className="py-2 font-medium text-lg">Rationale</h3>
           <p>This was a fun project where I started with just a huge list and the requirements defined above. The result is in the fiddle. Some interesting points were that: list items were all different colors, performance was key!</p>
+        </div>
+        
+        <div className="my-3 p-3 border rounded-sm border-gray-200 shadow-md">
+          <h2 className="text-xl font-bold">Challenge 4 - FastAPI Deployment</h2>
+          <h3 className="py-2 font-medium text-lg">Setup</h3>
+          <p>
+            I decided to build a small FastAPI to handle some fun features around the site. Picked this over lambda as it&apos;s easier to deploy and more cost effective.
+          </p>
+
+          <CodeHighlightTabs code={challenge4Code}
+            withExpandButton={true}
+            defaultExpanded={false}
+            expandCodeLabel="Show full code"
+            collapseCodeLabel="Show less"/>
+            
+          <h3 className="py-2 font-medium text-lg">Rationale</h3>
+          <p>I was surprised at how easy it was to deploy a simple API on fly.io. The only downside is that it&apos;s not free, but it&apos;s still very cheap. I&apos;m not sure how much it costs to run, but it&apos;m going to try and get somem database stuff going too just to add some complexity.</p>
         </div>
       </section>
     </div>
